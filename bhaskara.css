@@ -1,0 +1,10 @@
+.titulo{
+    font-size: 50px;
+    font-weight: 800;
+}
+.borda{
+    background-color: rgb(249, 124, 253);
+    border-width:  8px;
+    border-style: double;
+    border-radius: 5px;
+}
