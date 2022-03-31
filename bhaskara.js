@@ -1,23 +1,26 @@
-function  delta (a,b,c){
-    return(b*b)-(4*(a*c))
+function delta(a, b, c,){
+    const resultado = b**2 - 4*a*c
+    return resultado
 }
-function baskara(a,b,c){
-    const valordedelta = delta(a,b,c)
-    if(valordedelta<0)
-    return ({x1:"inexistente", x2:"inexistente"})
-    else{
-        const valor_x1=(-b+Math.sqrt(valordedelta)) / (2*a)
-        const valor_x2=(-b-Math.sqrt(valordedelta))/(2*a)
-        return ({x1: valor_x1 , x2: valor_x2})
+function bhaskara(a, b, c) {
+    let x1 = 'inexistente'
+    let x2 = 'inexistente'
+    const valorDelta = delta(a, b, c)
+    if (valorDelta == 0)
+    x1 = (-b + Math.sqrt(valorDelta)) / (2*a)
+    else if (valorDelta > 0) {
+        x1 = (-b + Math.sqrt(valorDelta)) / (2*a)
+        x2 = (-b - Math.sqrt(valorDelta)) / (2*a)
     }
-  
+    return {x1: x1, x2: x2}
 }
-function handleBtnCalcular (){
-    const vA = document.getElementById('valorA').value
-    const vB = document.getElementById('valorB').value
-    const vC = document.getElementById('valorC').value
-    const raizes = baskara (vA,vB,vC)
-    document.getElementById('resultadox1').innerHTML =raizes .x1
-    document.getElementById('resultadox2').innerHTML =raizes .x2
-}
-document.getElementById(`btncalcular`).addEventListener("click",handleBtnCalcular)
+ function handleBtnCalcular() {
+     const a = Number(document.getElementById('valorA').value)
+     const b = Number(document.getElementById('valorB').value)
+     const c = Number(document.getElementById('valorC').value)
+     const resultado = bhaskara(a, b, c)
+     document.getElementById('resultadoX1').innerHTML = resultado.x1
+     document.getElementById('resultadoX2').innerHTML = resultado.x2
+ }
+
+ document.getElementById('btnCalcular').addEventListener('click', handleBtnCalcular)
